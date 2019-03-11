@@ -20,6 +20,10 @@ const vueEdit = r => require.ensure([], () => r(require('@/page/vueEdit')), 'vue
 const adminSet = r => require.ensure([], () => r(require('@/page/adminSet')), 'adminSet');
 const sendMessage = r => require.ensure([], () => r(require('@/page/sendMessage')), 'sendMessage');
 const explain = r => require.ensure([], () => r(require('@/page/explain')), 'explain');
+const countyManage = r => require.ensure([], () => r(require('@/page/countyManage')), 'countyManage');
+const teamManage = r => require.ensure([], () => r(require('@/page/teamManage')), 'teamManage');
+const expertManage = r => require.ensure([], () => r(require('@/page/expertManage')), 'expertManage');
+const schoolManage = r => require.ensure([], () => r(require('@/page/schoolManage')), 'schoolManage');
 
 const routes = [
 	{
@@ -50,7 +54,25 @@ const routes = [
 			path: '/shopList',
 			component: shopList,
 			meta: ['数据管理', '商家列表'],
-		},{
+		},
+            {
+            path: '/countyManage',
+            component: countyManage,
+            meta: ['队伍管理', '省市管理'],
+        },            {
+            path: '/teamManage',
+            component: teamManage,
+            meta: ['队伍管理', '队伍管理'],
+        },          {
+            path: '/schoolManage',
+            component: schoolManage,
+            meta: ['队伍管理', '高校管理'],
+        },            {
+            path: '/expertManage',
+            component: countyManage,
+            meta: ['专家管理', '专家管理'],
+        },
+            {
 			path: '/foodList',
 			component: foodList,
 			meta: ['数据管理', '食品列表'],
