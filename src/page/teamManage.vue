@@ -9,11 +9,11 @@
     import headTop from '../components/headTop'
 
     export default {
-		name: "teamManage",
+        name: "teamManage",
         components: {
             headTop
         }
-	}
+    }
 </script>
 
 <style scoped>

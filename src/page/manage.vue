@@ -32,10 +32,10 @@
                         <!--<el-menu-item index="adminList">管理员列表</el-menu-item>-->
                     </el-submenu>
                     <el-submenu index="6">
-                    <template slot="title"><i class="el-icon-edit"></i>新闻信息</template>
-                    <!-- <el-menu-item index="uploadImg">上传图片</el-menu-item> -->
-                    <el-menu-item index="vueEdit">新闻发布</el-menu-item>
-                    <el-menu-item index="vueEdit">信息发布</el-menu-item>
+                        <template slot="title"><i class="el-icon-edit"></i>新闻信息</template>
+                        <!-- <el-menu-item index="uploadImg">上传图片</el-menu-item> -->
+                        <el-menu-item index="vueEdit">新闻发布</el-menu-item>
+                        <el-menu-item index="vueEdit">信息发布</el-menu-item>
                     </el-submenu>
                     <!--<el-submenu index="2">-->
                     <!--<template slot="title"><i class="el-icon-document"></i>数据管理</template>-->

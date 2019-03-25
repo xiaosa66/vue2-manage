@@ -12,6 +12,7 @@ export const getUserList = data => fetch('/user/list', data);
 
 export const getSchoolCount = data => fetch('/schoolCount', data);
 export const getSchoolList = data => fetch('/school', data);
+export const deleteSchool = data => fetch('/delSchool', data,'post');
 
 export const getUserCount = () => fetch('/user/count');
 
