@@ -10,6 +10,9 @@ export const adminCount = () => fetch('/admin/count');
 
 export const getUserList = data => fetch('/user/list', data);
 
+export const getSchoolCount = data => fetch('/schoolCount', data);
+export const getSchoolList = data => fetch('/school', data);
+
 export const getUserCount = () => fetch('/user/count');
 
 
