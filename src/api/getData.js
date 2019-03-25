@@ -1,16 +1,45 @@
 import fetch from '@/config/fetch'
 
-/**
- * 登陆
- */
-
 export const login = data => fetch('/admin/login', data, 'POST');
 
-/**
- * 退出
- */
-
 export const signout = () => fetch('/admin/signout');
+
+export const adminList = data => fetch('/admin/all', data);
+
+export const adminCount = () => fetch('/admin/count');
+
+export const getUserList = data => fetch('/user/list', data);
+
+export const getUserCount = () => fetch('/user/count');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * 获取用户信息
@@ -56,17 +85,7 @@ export const orderCount = date => fetch('/statis/order/' + date + '/count');
 
 export const adminDayCount = date => fetch('/statis/admin/' + date + '/count');
 
-/**
- * 管理员列表
- */
 
-export const adminList = data => fetch('/admin/all', data);
-
-/**
- * 管理员数量
- */
-
-export const adminCount = () => fetch('/admin/count');
 
 /**
  * 获取定位城市
@@ -185,17 +204,7 @@ export const updateFood = data => fetch('/shopping/v2/updatefood', data, 'POST')
 
 export const deleteFood = food_id => fetch('/shopping/v2/food/' + food_id, {}, 'DELETE');
 
-/**
- * 获取用户列表
- */
 
-export const getUserList = data => fetch('/v1/users/list', data);
-
-/**
- * 获取用户数量
- */
-
-export const getUserCount = data => fetch('/v1/users/count', data);
 
 /**
  * 获取订单列表
