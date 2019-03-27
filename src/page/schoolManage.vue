@@ -1,7 +1,7 @@
 <template>
     <div class="fillcontain">
         <head-top></head-top>
-        <div class="table_container">
+        <div class="table_container" v-show="!showAddForm">
             <el-table
                 ref="multipleTable"
                 :data="tableData"
@@ -29,12 +29,13 @@
                     width="220">
                 </el-table-column>
                 <el-table-column
-                    property="city_ID"
+                    property="city_name"
                     label="注册地址">
                 </el-table-column>
             </el-table>
 
             <div style="margin-top: 20px">
+                <el-button @click="toggleForm()">添加学校</el-button>
                 <el-button @click="deleteSchool()">删除选中学校</el-button>
             </div>
 
@@ -48,6 +49,23 @@
                     :total="count">
                 </el-pagination>
             </div>
+        </div>
+        <div class="add_form" v-show="showAddForm">
+            <el-form ref="form" :model="form" label-width="80px">
+                <el-form-item label="学校名称">
+                    <el-input v-model="form.school_name"></el-input>
+                </el-form-item>
+                <el-form-item label="学校区域">
+                    <el-select v-model="form.city_name" placeholder="请选择学校区域">
+                        <el-option label="区域一" value="shanghai"></el-option>
+                        <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="onSubmit">立即创建</el-button>
+                    <el-button @click="toggleForm">取消</el-button>
+                </el-form-item>
+            </el-form>
         </div>
     </div>
 
@@ -65,21 +83,24 @@
         data() {
             return {
                 tableData: [],
-                multipleSelection: []
+                multipleSelection: [],
+                showAddForm: false,
+                form: {
+                    school_name: '',
+                    city_name: ''
+                }
             }
         },
         created() {
             this.returnSchoolList();
         },
         methods: {
-            toggleSelection(rows) {
-                if (rows) {
-                    rows.forEach(row => {
-                        this.$refs.multipleTable.toggleRowSelection(row);
-                    });
-                } else {
-                    this.$refs.multipleTable.clearSelection();
-                }
+            toggleForm() {
+                this.showAddForm = !this.showAddForm;
+            },
+            onSubmit(e) {
+                console.log('submit!',e);
+                console.log('submit!',this.form);
             },
             async deleteSchool() {
                 let deleteSchoolArr = [];
@@ -91,6 +112,7 @@
                 console.log(PostData);
 
             },
+
             handleSelectionChange(val) {
                 this.multipleSelection = val;
             },
@@ -104,16 +126,7 @@
             },
             async returnSchoolList() {
                 const PostData = await getSchoolList();
-                this.tableData = [];
-                console.log(typeof PostData.data)
-                PostData.data.forEach(item => {
-                    const tableData = {};
-                    tableData.school_name = item.school_name;
-                    tableData.moment = item.moment;
-                    tableData.city_ID = item.city_ID;
-                    tableData.school_ID = item.school_ID;
-                    this.tableData.push(tableData);
-                })
+                this.tableData = PostData.data;
             }
         },
     }
@@ -121,4 +134,18 @@
 
 <style scoped>
 
+    .add_form {
+        position: absolute;
+        background: white;
+        -moz-box-shadow: 2px 2px 5px #333333;
+        -webkit-box-shadow: 2px 2px 5px #333333;
+        box-shadow: 2px 2px 5px #333333;
+        border-radius: 10px;
+        padding: 8px;
+        top: 10%;
+        left: 20%;
+        min-width: 70%;
+        height: 80%;
+        z-index: 99;
+    }
 </style>

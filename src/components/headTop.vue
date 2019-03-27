@@ -1,17 +1,21 @@
 <template>
     <div class="header_container">
 
-		<el-breadcrumb separator="/">
-			<el-breadcrumb-item :to="{ path: '/manage' }">首页</el-breadcrumb-item>
-			<el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
-		</el-breadcrumb>
-		<el-dropdown @command="handleCommand" menu-align='start'>
-			<img :src="baseImgPath + adminInfo.avatar" class="avator">
-			<el-dropdown-menu slot="dropdown">
-				<el-dropdown-item command="home">首页</el-dropdown-item>
-				<el-dropdown-item command="signout">退出</el-dropdown-item>
-			</el-dropdown-menu>
-		</el-dropdown>
+        <el-breadcrumb separator="/">
+            <el-breadcrumb-item :to="{ path: '/manage' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
+        </el-breadcrumb>
+        <el-dropdown @command="handleCommand" menu-align='start'>
+<!--            todo 头像功能先取消 -->
+<!--            <img :src="baseImgPath + adminInfo.avatar" class="avator">-->
+                <img src="/manage/static/img/default-avatar.png" class="avator">
+
+
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="home">首页</el-dropdown-item>
+                <el-dropdown-item command="signout">退出</el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
     </div>
 </template>
 

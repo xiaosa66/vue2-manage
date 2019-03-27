@@ -69,7 +69,7 @@ const routes = [
             meta: ['队伍管理', '高校管理'],
         },            {
             path: '/expertManage',
-            component: countyManage,
+            component: expertManage,
             meta: ['专家管理', '专家管理'],
         },
             {

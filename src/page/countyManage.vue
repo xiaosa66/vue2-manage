@@ -1,7 +1,7 @@
 <template>
     <div class="fillcontain">
         <head-top></head-top>
-        <div>countyManage</div>
+        <div>countyManage1234</div>
     </div>
 
 </template>

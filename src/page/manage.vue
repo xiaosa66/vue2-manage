@@ -1,4 +1,5 @@
 <template>
+<!--<head-top></head-top>-->
     <div class="manage_page fillcontain">
         <el-row style="height: 100%;">
             <el-col :span="4" style="min-height: 100%; background-color: #324057;">
@@ -14,7 +15,7 @@
                     </el-submenu>
                     <el-submenu index="3">
                         <template slot="title"><i class="el-icon-setting"></i>队伍管理</template>
-                        <el-menu-item index="countyManage">管理省市信息</el-menu-item>
+<!--                        <el-menu-item index="countyManage">管理省市信息</el-menu-item>-->
                         <el-menu-item index="schoolManage">管理高校信息</el-menu-item>
                         <el-menu-item index="teamManage">管理队伍信息</el-menu-item>
                     </el-submenu>
@@ -81,7 +82,11 @@
 </template>
 
 <script>
+    import headTop from '../components/headTop'
     export default {
+        components: {
+            headTop
+        },
         computed: {
             defaultActive: function () {
                 return this.$route.path.replace('/', '');
