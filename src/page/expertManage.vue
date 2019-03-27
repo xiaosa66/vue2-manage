@@ -92,7 +92,7 @@
 
 <script>
     import headTop from '../components/headTop'
-    import {getExpertCount,postExpert,getExpertList, deleteExpert} from '@/api/getData'
+    import {getExpertCount, postExpert, getExpertList, deleteExpert} from '@/api/getData'
 
     export default {
         name: "expertManage",
