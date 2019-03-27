@@ -10,23 +10,50 @@ export const adminCount = () => fetch('/admin/count');
 
 export const getUserList = data => fetch('/user/list', data);
 
-// 学校相关
+/***************
+ *   学校相关
+ * ************/
 export const getSchoolCount = data => fetch('/schoolCount', data);
 export const getSchoolList = data => fetch('/school', data);
 export const postSchool = data => fetch('/school', data,'post');
 export const deleteSchool = data => fetch('/delSchool', data,'post');
 
-// 队伍相关
+
+/***************
+ *   队伍相关
+ * ************/
 export const getTeamCount = data => fetch('/teamCount', data);
 export const getTeamList = data => fetch('/team', data);
 export const postTeam = data => fetch('/team', data,'post');
 export const deleteTeam = data => fetch('/delTeam', data, 'post');
 
-// 专家相关
+/***************
+ *   专家相关
+ * ************/
 export const getExpertCount = data => fetch('/expertCount', data);
 export const getExpertList = data => fetch('/expert', data);
 export const postExpert = data => fetch('/expert', data,'post');
 export const deleteExpert = data => fetch('/delExpert', data, 'post');
+
+/***************
+ *   新闻相关
+ * ************/
+export const getPostCount = data => fetch('/postsCount', data);
+export const getPostList = data => fetch('/posts', data);
+export const postPosts = data => fetch('/posts', data,'post');
+export const deletePosts = data => fetch('/delPosts', data, 'post');
+
+/***************
+ *   消息相关
+ * ************/
+export const getMessageCount = data => fetch('/messageCount', data);
+export const getMessageList = data => fetch('/message', data);
+export const postMessage = data => fetch('/message', data,'post');
+export const deleteMessage = data => fetch('/delMessage', data, 'post');
+
+/***************
+ *   其他相关
+ * ************/
 
 export const getUserCount = () => fetch('/user/count');
 

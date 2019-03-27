@@ -95,8 +95,7 @@
     import {getExpertCount, postExpert, getExpertList, deleteExpert} from '@/api/getData'
 
     export default {
-        name: "expertManage",
-        components: {
+         components: {
             headTop
         },
         data() {

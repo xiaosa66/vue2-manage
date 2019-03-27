@@ -2,8 +2,9 @@
     <div>
         <head-top></head-top>
         <el-card class="box-card">
-            <div v-for="o in 4" :key="o" class="text item">
-                {{'您的消息 ' + o }}
+            <div v-for="item in posts" class="text item">
+                {{item.name }} 说 {{item.title}}:
+                {{item.content}}
             </div>
         </el-card>
     </div>
@@ -13,7 +14,7 @@
     import headTop from '../components/headTop'
     import tendency from '../components/tendency'
     import dtime from 'time-formater'
-    import {userCount, orderCount, getUserCount, getOrderCount, adminDayCount, adminCount} from '@/api/getData'
+    import {userCount,getPostList, orderCount, getUserCount, getOrderCount, adminDayCount, adminCount} from '@/api/getData'
 
     export default {
         data() {
@@ -26,6 +27,7 @@
                 allAdminCount: null,
                 sevenDay: [],
                 sevenDate: [[], [], []],
+                posts:[]
             }
         },
         components: {
@@ -33,12 +35,14 @@
             tendency,
         },
         mounted() {
+            this.getPosts();
             // this.initData();
             // for (let i = 6; i > -1; i--) {
             // 	const date = dtime(new Date().getTime() - 86400000*i).format('YYYY-MM-DD')
             // 	this.sevenDay.push(date)
             // }
             // this.getSevenData();
+
         },
         computed: {},
         methods: {
@@ -75,6 +79,12 @@
                 }).catch(err => {
                     console.log(err)
                 })
+            },
+            // 获取新闻列表
+            async getPosts(){
+                const res  = await getPostList();
+                this.posts = res.data;
+                console.log(this.posts);
             }
         }
     }
