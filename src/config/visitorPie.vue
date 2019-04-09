@@ -71,9 +71,5 @@
 
 <style lang="less">
 	@import '../style/mixin';
-    .visitorpie{
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
+
 </style>
